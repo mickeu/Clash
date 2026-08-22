@@ -80,8 +80,23 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
-# 节点列表（请在此处添加你的节点）
+# 节点列表（请在此处添加你的节点，或使用 proxy-providers 订阅）
 proxies: []
+
+# 订阅代理节点提供者（可选，支持 Clash YAML 格式的订阅链接）
+# proxy-providers:
+#   机场名称:
+#     type: http
+#     url: "你的订阅链接"           # 需返回 Clash YAML 格式，部分机场需加 &flag=clash
+#     interval: 86400                # 自动更新间隔（秒）
+#     path: ./providers/airport.yaml
+#     health-check:
+#       enable: true
+#       url: http://www.gstatic.com/generate_204
+#       interval: 300
+
+# 策略组使用订阅节点时，把 use: - 机场名称 加到对应策略组即可
+# 示例：- {name: "PROXY", type: select, use: [机场名称], proxies: ["♻️ 自动选择", "🇯🇵 日本节点"]}
 
 # 规则集提供者
 # 顺序与 rules 匹配段完全对齐：广告 → 局域网 → AI → 苹果 → 微软 → Telegram → 游戏 → 流媒体 → 国内直连补充 → 境外兜底 → 国内四层防线
