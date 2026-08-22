@@ -335,24 +335,41 @@ proxy-groups:
 
 # 规则
 rules:
+  # 手动规则
   - DOMAIN-SUFFIX,mensura.cdn-apple.com,DIRECT
   - DOMAIN-SUFFIX,cdn-apple.com,DIRECT
   - DOMAIN-SUFFIX,aaplimg.com,DIRECT
   - DOMAIN-SUFFIX,voipgate.com,PROXY
 
+  # 广告拦截/隐私保护/域名劫持
   - RULE-SET,AdvertisingSupplement,REJECT
   - RULE-SET,Advertising,REJECT
   - RULE-SET,Hijacking,REJECT
   - RULE-SET,Privacy,REJECT
-  - RULE-SET,AppleIntelligence,AIGC
+
+  # 局域网直连
   - RULE-SET,Lan,DIRECT
-  - RULE-SET,Apple,Apple
+
+  # AI 服务
+  - RULE-SET,AppleIntelligence,AIGC
   - RULE-SET,OpenAI,AIGC
   - RULE-SET,Claude,AIGC
   - RULE-SET,Gemini,AIGC
+
+  # 苹果服务（在 AI 之后，避免 Apple Intelligence 域名被 Apple 规则集吞走直连）
+  - RULE-SET,Apple,Apple
+
+  # 微软服务
   - RULE-SET,Microsoft,Microsoft
+
+  # Telegram
+  - RULE-SET,Telegram,Telegram
+
+  # 游戏平台
   - RULE-SET,Game,Game
   - RULE-SET,Blizzard,Game
+
+  # 流媒体
   - RULE-SET,YouTube,YouTube
   - RULE-SET,Netflix,Netflix
   - RULE-SET,Disney,Disney+
@@ -361,11 +378,18 @@ rules:
   - RULE-SET,BiliBili,BiliBili
   - RULE-SET,ChinaMedia,DIRECT
   - RULE-SET,GlobalMedia,GlobalMedia
-  - RULE-SET,Telegram,Telegram
+
+  # 补充国内直连（必须在 Global 之前）
   - RULE-SET,DirectSupplement,DIRECT
+
+  # 境外网站代理兜底
+  - RULE-SET,Global,PROXY
+
+  # 国内直连四层防线
   - RULE-SET,ChinaMax,DIRECT
   - RULE-SET,ChinaMaxIP,DIRECT
   - RULE-SET,CitizenASN,DIRECT
   - GEOIP,CN,DIRECT
-  - RULE-SET,Global,PROXY
+
+  # 漏网之鱼走代理
   - MATCH,PROXY
