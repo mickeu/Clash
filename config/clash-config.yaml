@@ -4,11 +4,17 @@
 # 节点: 请在 proxies 段添加
 
 mixed-port: 7890
-allow-lan: false
+allow-lan: true
 bind-address: "0.0.0.0"
 mode: rule
 log-level: info
-ipv6: false
+ipv6: true
+# 统一延迟计算（消除握手延迟差异，测速更准）
+unified-delay: true
+# TCP 并发连接（同时尝试多个 IP，选最快的）
+tcp-concurrent: true
+# 进程匹配模式（iOS 上 Hako 强制 off，Apple 不允许枚举其他进程）
+find-process-mode: off
 
 external-controller: 127.0.0.1:9090
 
@@ -28,6 +34,27 @@ dns:
     - "*.cdn-apple.com"
     - "*.aaplimg.com"
     - "*.voipgate.com"
+    # 网络连通性测试（对齐 Surge always-real-ip）
+    - "*.msftncsi.com"
+    - "*.msftconnecttest.com"
+    # 游戏（主机/PC 联网检测，fake-ip 会不兼容）
+    - "*.srv.nintendo.net"
+    - "*.stun.playstation.net"
+    - "xbox.*.microsoft.com"
+    - "*.xboxlive.com"
+    # 暴雪/战网
+    - "*.battlenet.com.cn"
+    - "*.battlenet.com"
+    - "*.blzstatic.cn"
+    - "*.battle.net"
+    # STUN/穿透
+    - "*.turn.twilio.com"
+    - "*.stun.twilio.com"
+    - "stun.syncthing.net"
+    - "stun.*"
+    # 本地 IP 反向映射（开发/诊断常用）
+    - "*.sslip.io"
+    - "*.nip.io"
   nameserver-policy:
     "+.aaplimg.com":
       - 223.5.5.5
