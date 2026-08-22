@@ -1,7 +1,7 @@
 # Clash 配置文件 - 完整版（含地区策略组+图标，无订阅）
 # 规则集: blackmatrix7/ios_rule_script
 # 适配: Clash Apple 原生客户端 / mihomo
-# 节点: 良心机场 39 个节点内嵌
+# 节点: 请在 proxies 段添加，策略组会自动引用
 
 mixed-port: 7890
 allow-lan: true
@@ -276,14 +276,14 @@ rule-providers:
     interval: 86400
 
 proxy-groups:
-  - {name: "🇯🇵 日本节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png, proxies: ["🇯🇵日本高速01|CTCU|0.5x", "🇯🇵日本高速02|CTCU|0.5x", "🇯🇵日本高速01|BGP|CUCM", "🇯🇵日本高速02|BGP|CUCM", "🇯🇵日本高速03|BGP|CUCM", "🇯🇵日本高速04|BGP|CUCM", "🇯🇵日本高速05|BGP|CUCM", "🇯🇵日本高速06|BGP|CTCU", "🇯🇵日本高速07|BGP|CTCU", "🇯🇵日本高速08|BGP|CTCU", "🇯🇵日本高速09|BGP|CTCU"], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
-  - {name: "🇭🇰 香港节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png, proxies: ["🇭🇰香港高速01|BGP|CMCU", "🇭🇰香港高速02|BGP|CMCU", "🇭🇰香港高速03|BGP|CMCU", "🇭🇰香港高速04|BGP|CMCU", "🇭🇰香港高速05|BGP|CMCU", "🇭🇰香港01住宅IP|BGP|CTCM", "🇭🇰香港02住宅IP|BGP|CTCM", "🇭🇰香港03住宅IP|BGP|CTCM", "🇭🇰香港04住宅IP|BGP|CTCM", "🇭🇰香港05住宅IP|BGP|CTCM"], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
-  - {name: "🇸🇬 新加坡节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png, proxies: ["🇸🇬新加坡高速01|BGP|CTCUCM", "🇸🇬新加坡高速02|BGP|CTCUCM", "🇸🇬新加坡高速03|BGP|CTCUCM", "🇸🇬新加坡高速04|BGP|CTCUCM", "🇸🇬新加坡高速05|BGP|CTCUCM", "🇸🇬新加坡高速06|BGP|CTCU", "🇸🇬新加坡高速07|BGP|CTCU", "🇸🇬新加坡高速08|BGP|CTCU"], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
-  - {name: "🇺🇸 美国节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png, proxies: ["🇺🇸美国高速01|CTCU|0.1x", "🇺🇸美国高速02|CTCU|0.1x", "🇺🇸美国高速03|CTCU|0.1x", "🇺🇸美国高速04|CTCU|0.1x", "🇺🇸美国高速05|CTCU|0.1x", "🇺🇸美国洛杉矶01|流媒体|0.01x", "🇺🇸美国洛杉矶02|流媒体|0.01x"], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
-  - {name: "🌍 其他节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png, proxies: ["🇬🇧英国伦敦|CTCU|0.1x", "🇰🇷韩国高速01|BGP|流媒体", "🇨🇳台湾高速01|BGP|流媒体"], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
+  - {name: "🇯🇵 日本节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png, proxies: [], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
+  - {name: "🇭🇰 香港节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png, proxies: [], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
+  - {name: "🇸🇬 新加坡节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png, proxies: [], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
+  - {name: "🇺🇸 美国节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png, proxies: [], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
+  - {name: "🌍 其他节点", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png, proxies: [], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
   - {name: "PROXY", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png, proxies: ["♻️ 自动选择", "🌐 良心机场", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
-  - {name: "♻️ 自动选择", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png, proxies: ["🇯🇵日本高速01|CTCU|0.5x", "🇯🇵日本高速02|CTCU|0.5x", "🇭🇰香港高速01|BGP|CMCU", "🇭🇰香港高速02|BGP|CMCU", "🇭🇰香港高速03|BGP|CMCU", "🇭🇰香港高速04|BGP|CMCU", "🇭🇰香港高速05|BGP|CMCU", "🇭🇰香港01住宅IP|BGP|CTCM", "🇭🇰香港02住宅IP|BGP|CTCM", "🇭🇰香港03住宅IP|BGP|CTCM", "🇭🇰香港04住宅IP|BGP|CTCM", "🇭🇰香港05住宅IP|BGP|CTCM", "🇸🇬新加坡高速01|BGP|CTCUCM", "🇸🇬新加坡高速02|BGP|CTCUCM", "🇸🇬新加坡高速03|BGP|CTCUCM", "🇸🇬新加坡高速04|BGP|CTCUCM", "🇸🇬新加坡高速05|BGP|CTCUCM", "🇸🇬新加坡高速06|BGP|CTCU", "🇸🇬新加坡高速07|BGP|CTCU", "🇸🇬新加坡高速08|BGP|CTCU", "🇯🇵日本高速01|BGP|CUCM", "🇯🇵日本高速02|BGP|CUCM", "🇯🇵日本高速03|BGP|CUCM", "🇯🇵日本高速04|BGP|CUCM", "🇯🇵日本高速05|BGP|CUCM", "🇯🇵日本高速06|BGP|CTCU", "🇯🇵日本高速07|BGP|CTCU", "🇯🇵日本高速08|BGP|CTCU", "🇯🇵日本高速09|BGP|CTCU", "🇺🇸美国高速01|CTCU|0.1x", "🇺🇸美国高速02|CTCU|0.1x", "🇺🇸美国高速03|CTCU|0.1x", "🇺🇸美国高速04|CTCU|0.1x", "🇺🇸美国高速05|CTCU|0.1x", "🇬🇧英国伦敦|CTCU|0.1x", "🇰🇷韩国高速01|BGP|流媒体", "🇨🇳台湾高速01|BGP|流媒体", "🇺🇸美国洛杉矶01|流媒体|0.01x", "🇺🇸美国洛杉矶02|流媒体|0.01x"], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
-  - {name: "🌐 良心机场", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png, proxies: ["🇯🇵日本高速01|CTCU|0.5x", "🇯🇵日本高速02|CTCU|0.5x", "🇭🇰香港高速01|BGP|CMCU", "🇭🇰香港高速02|BGP|CMCU", "🇭🇰香港高速03|BGP|CMCU", "🇭🇰香港高速04|BGP|CMCU", "🇭🇰香港高速05|BGP|CMCU", "🇭🇰香港01住宅IP|BGP|CTCM", "🇭🇰香港02住宅IP|BGP|CTCM", "🇭🇰香港03住宅IP|BGP|CTCM", "🇭🇰香港04住宅IP|BGP|CTCM", "🇭🇰香港05住宅IP|BGP|CTCM", "🇸🇬新加坡高速01|BGP|CTCUCM", "🇸🇬新加坡高速02|BGP|CTCUCM", "🇸🇬新加坡高速03|BGP|CTCUCM", "🇸🇬新加坡高速04|BGP|CTCUCM", "🇸🇬新加坡高速05|BGP|CTCUCM", "🇸🇬新加坡高速06|BGP|CTCU", "🇸🇬新加坡高速07|BGP|CTCU", "🇸🇬新加坡高速08|BGP|CTCU", "🇯🇵日本高速01|BGP|CUCM", "🇯🇵日本高速02|BGP|CUCM", "🇯🇵日本高速03|BGP|CUCM", "🇯🇵日本高速04|BGP|CUCM", "🇯🇵日本高速05|BGP|CUCM", "🇯🇵日本高速06|BGP|CTCU", "🇯🇵日本高速07|BGP|CTCU", "🇯🇵日本高速08|BGP|CTCU", "🇯🇵日本高速09|BGP|CTCU", "🇺🇸美国高速01|CTCU|0.1x", "🇺🇸美国高速02|CTCU|0.1x", "🇺🇸美国高速03|CTCU|0.1x", "🇺🇸美国高速04|CTCU|0.1x", "🇺🇸美国高速05|CTCU|0.1x", "🇬🇧英国伦敦|CTCU|0.1x", "🇰🇷韩国高速01|BGP|流媒体", "🇨🇳台湾高速01|BGP|流媒体", "🇺🇸美国洛杉矶01|流媒体|0.01x", "🇺🇸美国洛杉矶02|流媒体|0.01x"]}
+  - {name: "♻️ 自动选择", type: url-test, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png, proxies: [], url: 'http://www.gstatic.com/generate_204', interval: 300, tolerance: 50}
+  - {name: "🌐 良心机场", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png, proxies: []}
   - {name: "Apple", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png, proxies: ["DIRECT", "PROXY", "♻️ 自动选择", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
   - {name: "AIGC", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png, proxies: ["PROXY", "♻️ 自动选择", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
   - {name: "Telegram", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png, proxies: ["PROXY", "♻️ 自动选择", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
@@ -296,7 +296,6 @@ proxy-groups:
   - {name: "GlobalMedia", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png, proxies: ["PROXY", "♻️ 自动选择", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
   - {name: "Microsoft", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png, proxies: ["DIRECT", "PROXY", "♻️ 自动选择", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
   - {name: "Game", type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png, proxies: ["DIRECT", "PROXY", "♻️ 自动选择", "🇯🇵 日本节点", "🇭🇰 香港节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🌍 其他节点"]}
-
 
 # 规则
 rules:
