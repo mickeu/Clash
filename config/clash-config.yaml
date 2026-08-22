@@ -103,8 +103,17 @@ proxies:
   #     public-key: your-pbk
   #     short-id: your-sid
 
-# 规则集提供者 (blackmatrix7)
+# 规则集提供者
+# 顺序与 rules 匹配段完全对齐：广告 → 局域网 → AI → 苹果 → 微软 → Telegram → 游戏 → 流媒体 → 国内直连补充 → 境外兜底 → 国内四层防线
 rule-providers:
+  # ==== 广告拦截/隐私保护/域名劫持 ====
+  # 自建：广告拦截补充 (mickeu/Clash)
+  AdvertisingSupplement:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Advertising_Supplement.yaml"
+    path: ./ruleset/Advertising_Supplement.yaml
+    interval: 86400
   Advertising:
     type: http
     behavior: domain
@@ -123,18 +132,22 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy.yaml"
     path: ./ruleset/Privacy.yaml
     interval: 86400
-  # 自建：广告拦截补充 (mickeu/Clash)
-  AdvertisingSupplement:
+
+  # ==== 局域网直连 ====
+  Lan:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Advertising_Supplement.yaml"
-    path: ./ruleset/Advertising_Supplement.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
+    path: ./ruleset/Lan.yaml
     interval: 86400
-  Apple:
+
+  # ==== AI 服务 ====
+  # 自建：Apple Intelligence 走代理 (mickeu/Clash)
+  AppleIntelligence:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml"
-    path: ./ruleset/Apple.yaml
+    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/AppleIntelligence.yaml"
+    path: ./ruleset/AppleIntelligence.yaml
     interval: 86400
   OpenAI:
     type: http
@@ -154,19 +167,33 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml"
     path: ./ruleset/Gemini.yaml
     interval: 86400
-  # 自建：Apple Intelligence 走代理 (mickeu/Clash)
-  AppleIntelligence:
+
+  # ==== 苹果服务（在 AI 之后，避免 Apple Intelligence 域名被吞走直连）====
+  Apple:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/AppleIntelligence.yaml"
-    path: ./ruleset/AppleIntelligence.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
     interval: 86400
+
+  # ==== 微软服务 ====
   Microsoft:
     type: http
     behavior: domain
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml"
     path: ./ruleset/Microsoft.yaml
     interval: 86400
+
+  # ==== Telegram ====
+  # 自建：Telegram 完整规则集（含 CDN 补充域名）(mickeu/Clash)
+  Telegram:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Telegram_All.yaml"
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
+
+  # ==== 游戏平台 ====
   Game:
     type: http
     behavior: domain
@@ -179,6 +206,8 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Blizzard/Blizzard.yaml"
     path: ./ruleset/Blizzard.yaml
     interval: 86400
+
+  # ==== 流媒体 ====
   YouTube:
     type: http
     behavior: domain
@@ -227,19 +256,25 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.yaml"
     path: ./ruleset/GlobalMedia.yaml
     interval: 86400
-  # 自建：Telegram 完整规则集（含 CDN 补充域名）(mickeu/Clash)
-  Telegram:
+
+  # ==== 补充国内直连（必须在 Global 之前）====
+  # 自建：补充国内直连 (mickeu/Clash)
+  DirectSupplement:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Telegram_All.yaml"
-    path: ./ruleset/Telegram.yaml
+    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Direct_Supplement.yaml"
+    path: ./ruleset/Direct_Supplement.yaml
     interval: 86400
+
+  # ==== 境外网站代理兜底 ====
   Global:
     type: http
     behavior: domain
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.yaml"
     path: ./ruleset/Global.yaml
     interval: 86400
+
+  # ==== 国内直连四层防线 ====
   ChinaMax:
     type: http
     behavior: domain
@@ -258,19 +293,6 @@ rule-providers:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/ASN_China.yaml"
     path: ./ruleset/ASN_China.yaml
-    interval: 86400
-  Lan:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
-    path: ./ruleset/Lan.yaml
-    interval: 86400
-  # 自建：补充国内直连 (mickeu/Clash)
-  DirectSupplement:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Direct_Supplement.yaml"
-    path: ./ruleset/Direct_Supplement.yaml
     interval: 86400
 
 # 策略组
