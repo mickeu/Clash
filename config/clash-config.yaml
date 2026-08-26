@@ -159,7 +159,7 @@ rule-providers:
   Gemini:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml"
+    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Gemini.yaml"
     path: ./ruleset/Gemini.yaml
     interval: 86400
 
@@ -167,8 +167,8 @@ rule-providers:
   Apple:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml"
-    path: ./ruleset/Apple.yaml
+    url: "https://raw.githubusercontent.com/mickeu/Clash/main/ruleset/Apple_All.yaml"
+    path: ./ruleset/Apple_All.yaml
     interval: 86400
 
   # ==== 微软服务 ====
