@@ -1,0 +1,16 @@
+payload:
+  - URL-REGEX,/\d+/resolve
+  - URL-REGEX,/\d+/sign_d
+  - URL-REGEX,^https?:\/\/.+?\.beacon\.qq\.com
+  - URL-REGEX,^https?:\/\/.+?\.l\.qq\.com
+  - URL-REGEX,^https?:\/\/\w+\.gdt\.qq\.com
+  - URL-REGEX,^https?:\/\/ad\d\.sina\.com
+  - URL-REGEX,^https?:\/\/ad\d\.sina\.com.cn
+  - URL-REGEX,^https?:\/\/app\.58\.com\/api\/log\/
+  - URL-REGEX,^https?:\/\/d\d.sinaimg.cn
+  - URL-REGEX,^https?:\/\/sa\d\.tuisong\.baidu\.com
+  - URL-REGEX,^https?:\/\/sax\w?\.sina\.com\.cn
+  - URL-REGEX,^https?:\/\/update\.pan\.baidu\.com\/statistics
+  - URL-REGEX,^https?:\/\/cdn-1rtb\.caiyunapp\.com/creative/.*$
+  - URL-REGEX,^https?:\/\/goblin\.hupu\.com/[^/]+/[^/]+\/interfaceAd\/
+  - AND,((USER-AGENT,Frodo*),(DOMAIN,119.29.29.29))

@@ -1,0 +1,3 @@
+payload:
+  - USER-AGENT,Spotify*
+  - PROCESS-NAME,com.spotify.music
